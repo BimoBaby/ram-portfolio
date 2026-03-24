@@ -41,7 +41,6 @@ export const Contact = () => {
     message: "",
   });
 
-  // ✅ cooldown tracker (fix for error)
   const lastSubmittedRef = useRef(0);
 
   const validateForm = () => {
@@ -63,7 +62,6 @@ export const Contact = () => {
       return "Invalid email format.";
     }
 
-    // block fake domains
     const blockedDomains = ["test.com", "example.com", "dadas.com"];
     const domain = email.split("@")[1]?.toLowerCase();
     if (blockedDomains.includes(domain)) {
@@ -78,7 +76,6 @@ export const Contact = () => {
       return "Message is too long.";
     }
 
-    // spam patterns
     if (/(.)\1{5,}/.test(message)) {
       return "Message looks like spam.";
     }
@@ -91,7 +88,6 @@ export const Contact = () => {
 
     const now = Date.now();
 
-    // ✅ cooldown protection
     if (now - lastSubmittedRef.current < 10000) {
       setSubmitStatus({
         type: "error",
