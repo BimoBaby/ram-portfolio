@@ -7,7 +7,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { Button } from "@/components/Button";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
 const contactInfo = [
@@ -34,17 +34,87 @@ export const Contact = () => {
     email: "",
     message: "",
   });
+
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({
-    type: null, // 'success' or 'error'
+    type: null,
     message: "",
   });
+
+  // ✅ cooldown tracker (fix for error)
+  const lastSubmittedRef = useRef(0);
+
+  const validateForm = () => {
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    if (!name) return "Name is required.";
+    if (name.length < 3) return "Name must be at least 3 characters.";
+
+    if (!/^[a-zA-Z\s.'-]+$/.test(name)) {
+      return "Name contains invalid characters.";
+    }
+
+    if (!email) return "Email is required.";
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return "Invalid email format.";
+    }
+
+    // block fake domains
+    const blockedDomains = ["test.com", "example.com", "dadas.com"];
+    const domain = email.split("@")[1]?.toLowerCase();
+    if (blockedDomains.includes(domain)) {
+      return "Please use a valid email provider.";
+    }
+
+    if (!message) return "Message is required.";
+    if (message.length < 10) {
+      return "Message must be at least 10 characters.";
+    }
+    if (message.length > 500) {
+      return "Message is too long.";
+    }
+
+    // spam patterns
+    if (/(.)\1{5,}/.test(message)) {
+      return "Message looks like spam.";
+    }
+
+    return null;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const now = Date.now();
+
+    // ✅ cooldown protection
+    if (now - lastSubmittedRef.current < 10000) {
+      setSubmitStatus({
+        type: "error",
+        message: "Please wait a few seconds before sending again.",
+      });
+      return;
+    }
+
+    lastSubmittedRef.current = now;
+
+    const error = validateForm();
+
+    if (error) {
+      setSubmitStatus({
+        type: "error",
+        message: error,
+      });
+      return;
+    }
+
     setIsLoading(true);
     setSubmitStatus({ type: null, message: "" });
+
     try {
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -60,9 +130,9 @@ export const Contact = () => {
         serviceId,
         templateId,
         {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
         },
         publicKey
       );
@@ -71,9 +141,11 @@ export const Contact = () => {
         type: "success",
         message: "Message sent successfully! I'll get back to you soon.",
       });
+
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("EmailJS error:", error);
+
       setSubmitStatus({
         type: "error",
         message:
@@ -83,6 +155,7 @@ export const Contact = () => {
       setIsLoading(false);
     }
   };
+
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full">
@@ -91,35 +164,29 @@ export const Contact = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
+          <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase">
             Get In Touch
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-secondary-foreground">
             Let's build{" "}
             <span className="font-serif italic font-normal text-white">
               something great!
             </span>
           </h2>
-          <p className="text-muted-foreground animate-fade-in animation-delay-200">
-            Have ideas in mind? I'd love to hear about it. Send me a message
-            and let's discuss how we can work together.
+          <p className="text-muted-foreground">
+            Have ideas in mind? I'd love to hear about it. Send me a message and
+            let's discuss how we can work together.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <div className="glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
+          {/* Form */}
+          <div className="glass p-8 rounded-3xl border border-primary/30">
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Name
-                </label>
+                <label className="block text-sm font-medium mb-2">Name</label>
                 <input
-                  id="name"
                   type="text"
                   required
                   placeholder="Your name..."
@@ -127,45 +194,39 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  type="email"
-                  className="block text-sm font-medium mb-2"
-                >
+                <label className="block text-sm font-medium mb-2">
                   Email
                 </label>
                 <input
+                  type="email"
                   required
                   placeholder="your@email.com"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
+                <label className="block text-sm font-medium mb-2">
                   Message
                 </label>
                 <textarea
                   rows={5}
                   required
+                  placeholder="Your message..."
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  placeholder="Your message..."
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none"
                 />
               </div>
 
@@ -176,28 +237,26 @@ export const Contact = () => {
                 disabled={isLoading}
               >
                 {isLoading ? (
-                  <>Sending...</>
+                  "Sending..."
                 ) : (
                   <>
-                    Send Message
-                    <Send className="w-5 h-5" />
+                    Send Message <Send className="w-5 h-5" />
                   </>
                 )}
               </Button>
 
               {submitStatus.type && (
                 <div
-                  className={`flex items-center gap-3
-                     p-4 rounded-xl ${
-                       submitStatus.type === "success"
-                         ? "bg-green-500/10 border border-green-500/20 text-green-400"
-                         : "bg-red-500/10 border border-red-500/20 text-red-400"
-                     }`}
+                  className={`flex items-center gap-3 p-4 rounded-xl ${
+                    submitStatus.type === "success"
+                      ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                      : "bg-red-500/10 border border-red-500/20 text-red-400"
+                  }`}
                 >
                   {submitStatus.type === "success" ? (
-                    <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5" />
                   ) : (
-                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                    <AlertCircle className="w-5 h-5" />
                   )}
                   <p className="text-sm">{submitStatus.message}</p>
                 </div>
@@ -206,19 +265,19 @@ export const Contact = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-6 animate-fade-in animation-delay-400">
+          <div className="space-y-6">
             <div className="glass rounded-3xl p-8">
               <h3 className="text-xl font-semibold mb-6">
                 Contact Information
               </h3>
+
               <div className="space-y-4">
                 {contactInfo.map((item, i) => (
-                  <a
+                  <div
                     key={i}
-                    href={item.href}
-                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-surface transition-colors group"
+                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-surface transition-colors"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                       <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
@@ -227,12 +286,11 @@ export const Contact = () => {
                       </div>
                       <div className="font-medium">{item.value}</div>
                     </div>
-                  </a>
+                  </div>
                 ))}
               </div>
             </div>
 
-            {/* Availability Card */}
             <div className="glass rounded-3xl p-8 border border-primary/30">
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
@@ -240,8 +298,7 @@ export const Contact = () => {
               </div>
               <p className="text-muted-foreground text-sm">
                 I'm currently open to new opportunities and exciting projects.
-                If you have something in mind or just want to say hi, feel free to reach out.
-                let's talk!
+                Feel free to reach out anytime!
               </p>
             </div>
           </div>
