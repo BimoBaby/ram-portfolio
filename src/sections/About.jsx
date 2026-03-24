@@ -49,7 +49,7 @@ export const About = () => {
 
             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
               <p>
-                I’m a software engineer with 3+ years of experience delivering high-quality software solutions that drive real business results. 
+                I’m a software engineer with 2+ years of experience delivering high-quality software solutions that drive real business results. 
                 I specialize in React, Next.js, and Vue.js, building scalable applications from polished user interfaces to complex enterprise systems with 
                 a strong focus on performance, maintainability, and user experience.
               </p>
