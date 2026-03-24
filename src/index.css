@@ -1,31 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  /* Backgrounds remain the same */
- --color-background: #0A0C16; /* deep dark with blue tint */
---color-surface: #10152B;    /* dark surface leaning electric blue */
---color-card: #182040;       /* card background with electric blue undertone */
+  
+ --color-background: #0A0C16;
+--color-surface: #10152B;
+--color-card: #182040;
 
   /* Text */
   --color-foreground: #F5F5F7;
   --color-muted-foreground: #A8A8B0;
 
   /* Primary (Darker Neon Green for buttons) */
-  --color-primary: #00CC66; /* softer neon green */
+  --color-primary: #00CC66;
   --color-primary-foreground: #FFFFFF;
 
   /* Secondary (Darker Neon Blue for buttons) */
-  --color-secondary: #0099CC; /* softer cyan/blue */
+  --color-secondary: #0099CC;
   --color-secondary-foreground: #A0E0FF;
 
   /* UI Elements */
   --color-muted: #161622;
   --color-border: #222233;
 
-  /* Highlight (Darker hover glow) */
-  --color-highlight: #00BFB0; /* softer cyan-green glow */
+  --color-highlight: #00BFB0;
   
-  /* Radius */
   --radius: 0.75rem;
 }
 

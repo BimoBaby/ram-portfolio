@@ -15,19 +15,16 @@ const contactInfo = [
     icon: Mail,
     label: "Email",
     value: "manilarayandrew@gmail.com",
-    href: "mailto:manilarayandrew@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
     value: "09455600851",
-    href: "tel:09455600851",
   },
   {
     icon: MapPin,
     label: "Location",
     value: "Molino 3, Bacoor, Cavite",
-    href: "#",
   },
 ];
 

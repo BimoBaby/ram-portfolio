@@ -2,9 +2,8 @@ import { Button } from "@/components/Button";
 import {
   ArrowRight,
   ChevronDown,
-  Github,
   Linkedin,
-  Twitter,
+  Facebook,
   Download,
 } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
@@ -109,7 +108,7 @@ export const Hero = () => {
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
               <Button size="lg">
-                Contact Me <ArrowRight className="w-5 h-5" />
+                Details <ArrowRight className="w-5 h-5" />
               </Button>
               <a href="/RAM-CV.pdf" download>
                 <AnimatedBorderButton>
@@ -123,9 +122,8 @@ export const Hero = () => {
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
               <span className="text-sm text-muted-foreground">Follow me: </span>
               {[
-                { icon: Github, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
+                { icon: Linkedin, href: "www.linkedin.com/in/ray-andrew-manila-2126b4275" },
+                { icon: Facebook, href: "https://www.facebook.com/profile.php?id=100092542480793" },
               ].map((social, idx) => (
                 <a
                   key={idx}
