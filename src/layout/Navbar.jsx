@@ -81,7 +81,16 @@ export const Navbar = () => {
               </a>
             ))}
 
-            <Button onClick={() => setIsMobileMenuOpen(false)}>
+            <Button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+
+                const section = document.querySelector("#contact");
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
               Contact Me
             </Button>
           </div>
