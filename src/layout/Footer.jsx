@@ -1,8 +1,8 @@
 import {Linkedin, Facebook} from "lucide-react";
 
 const socialLinks = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/ray-andrew-manila-2126b4275", label: "LinkedIn" },
+  { icon: Facebook, href: "https://www.facebook.com/profile.php?id=100092542480793", label: "Facebook" },
 ];
 
 const footerLinks = [
@@ -48,6 +48,8 @@ export const Footer = () => {
               <a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={social.label}
                 className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
               >
