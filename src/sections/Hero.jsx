@@ -101,7 +101,7 @@ export const Hero = () => {
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                Hi, I’m Ray Andrew Manila — I build scalable web apps using React, Next.js, and Vue.js, 
+                Hi, I’m Ray Andrew Manila — I build scalable web apps using React, Next.js, and Vue.js,
                 that users love!
               </p>
             </div>
@@ -111,10 +111,12 @@ export const Hero = () => {
               <Button size="lg">
                 Contact Me <ArrowRight className="w-5 h-5" />
               </Button>
-              <AnimatedBorderButton>
-                <Download className="w-5 h-5" />
-                Download CV
-              </AnimatedBorderButton>
+              <a href="/RAM-CV.pdf" download>
+                <AnimatedBorderButton>
+                  <Download className="w-5 h-5" />
+                  Download CV
+                </AnimatedBorderButton>
+              </a>
             </div>
 
             {/* Social Links */}
