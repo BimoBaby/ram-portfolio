@@ -12,19 +12,11 @@ import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 const skills = [
   "React",
   "Next.js",
-  "TypeScript",
-  "Node.js",
-  "GraphQL",
-  "PostgreSQL",
-  "MongoDB",
-  "Redis",
-  "Docker",
-  "AWS",
+  "Vue.js",
+  "JavaScript",
+  "MySQL",
   "Vercel",
   "Tailwind CSS",
-  "Prisma",
-  "Jest",
-  "Cypress",
   "Figma",
   "Git",
   "GitHub Actions",
@@ -36,7 +28,7 @@ export const Hero = () => {
       {/* Bg */}
       <div className="absolute inset-0">
         <img
-          src="/hero-bg.jpg"
+          src="/ram-bg.jpg"
           alt="Hero image"
           className="w-full h-full object-cover opacity-40"
         />
@@ -44,7 +36,7 @@ export const Hero = () => {
       </div>
 
       {/* Green Dots */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <div
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
@@ -59,6 +51,30 @@ export const Hero = () => {
             }}
           />
         ))}
+      </div> */}
+
+      {/* Techy Glowing Dots */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(1000)].map((_, i) => {
+          const size = 1 + Math.random() * 2; // 1px – 3px dots
+          const color = Math.random() > 0.5 ? "#00CC66" : "#0099CC"; // green or blue
+          return (
+            <div
+              key={i}
+              className="absolute rounded-full opacity-80"
+              style={{
+                width: `${size}px`,
+                height: `${size}px`,
+                backgroundColor: color,
+                boxShadow: `0 0 ${3 + Math.random() * 6}px ${color}`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animation: `slow-drift ${15 + Math.random() * 20}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 5}s`,
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Content */}
@@ -74,20 +90,19 @@ export const Hero = () => {
             </div>
 
             {/* Headline */}
-            <div className="space-y-4">
+            <div className="space-y-4 lg:pl-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                Crafting <span className="text-primary glow-text">digital</span>
+                Creating <span className="text-primary glow-text">Virtual</span>
                 <br />
-                experiences with
+                Journeys with
                 <br />
                 <span className="font-serif italic font-normal text-white">
-                  precision.
+                  Excellence.
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                Hi, I'm Pedro Machado — a software engineer specializing in
-                React, Next.js, and TypeScript. I build scalable, performant web
-                applications that users love.
+                Hi, I’m Ray Andrew Manila — I build scalable web apps using React, Next.js, and Vue.js, 
+                that users love!
               </p>
             </div>
 
@@ -121,7 +136,7 @@ export const Hero = () => {
             </div>
           </div>
           {/* Right Column - Profile Image */}
-          <div className="relatice animate-fade-in animation-delay-300">
+          <div className="relatice animate-fade-in animation-delay-300 lg:pl-12">
             {/* Profile Image */}
             <div className="relative max-w-md mx-auto">
               <div
@@ -132,8 +147,8 @@ export const Hero = () => {
               />
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/profile-photo.jpg"
-                  alt="Pedro Machado"
+                  src="/ray-portfolio.jpg"
+                  alt="Ray Andrew R. Manila"
                   className="w-full aspect-[4/5] object-cover rounded-2xl"
                 />
 
@@ -148,7 +163,7 @@ export const Hero = () => {
                 </div>
                 {/* Stats Badge */}
                 <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
-                  <div className="text-2xl font-bold text-primary">5+</div>
+                  <div className="text-2xl font-bold text-primary">2+</div>
                   <div className="text-xs text-muted-foreground">
                     Years Exp.
                   </div>

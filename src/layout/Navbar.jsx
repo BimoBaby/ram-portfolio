@@ -6,7 +6,7 @@ const navLinks = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
-  { href: "#testimonials", label: "Testimonials" },
+  // { href: "#testimonials", label: "Testimonials" },
 ];
 
 export const Navbar = () => {
@@ -25,16 +25,15 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
-        isScrolled ? "glass-strong py-3" : "bg-transparent py-5"
-      }  z-50`}
+      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${isScrolled ? "glass-strong py-3" : "bg-transparent py-5"
+        }  z-50`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
         <a
           href="#"
           className="text-xl font-bold tracking-tight hover:text-primary"
         >
-          PM<span className="text-primary">.</span>
+          RAM<span className="text-primary">.</span>
         </a>
 
         {/* Desktop Nav */}
@@ -54,7 +53,9 @@ export const Navbar = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Button size="sm">Contact Me</Button>
+          <Button size="sm" asChild>
+            <a href="#contact">Contact Me</a>
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}

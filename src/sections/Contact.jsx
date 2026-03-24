@@ -14,19 +14,19 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "pedro@example.com",
-    href: "mailto:pedro@example.com",
+    value: "manilarayandrew@gmail.com",
+    href: "mailto:manilarayandrew@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "09455600851",
+    href: "tel:09455600851",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
+    value: "Molino 3, Bacoor, Cavite",
     href: "#",
   },
 ];
@@ -75,7 +75,7 @@ export const Contact = () => {
         message: "Message sent successfully! I'll get back to you soon.",
       });
       setFormData({ name: "", email: "", message: "" });
-    } catch (err) {
+    } catch (error) {
       console.error("EmailJS error:", error);
       setSubmitStatus({
         type: "error",
@@ -102,11 +102,11 @@ export const Contact = () => {
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
             Let's build{" "}
             <span className="font-serif italic font-normal text-white">
-              something great.
+              something great!
             </span>
           </h2>
           <p className="text-muted-foreground animate-fade-in animation-delay-200">
-            Have a project in mind? I'd love to hear about it. Send me a message
+            Have ideas in mind? I'd love to hear about it. Send me a message
             and let's discuss how we can work together.
           </p>
         </div>
@@ -243,7 +243,7 @@ export const Contact = () => {
               </div>
               <p className="text-muted-foreground text-sm">
                 I'm currently open to new opportunities and exciting projects.
-                Whether you need a full-time engineer or a freelance consultant,
+                If you have something in mind or just want to say hi, feel free to reach out.
                 let's talk!
               </p>
             </div>

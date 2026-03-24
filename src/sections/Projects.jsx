@@ -2,38 +2,38 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const projects = [
   {
-    title: "Fintech Dashboard",
+    title: "Event Management System",
     description:
-      "A comprehensive financial analytics platform with real-time data visualization, portfolio management, and AI-powered insights.",
+      "A comprehensive event management platform with real-time registration, scheduling, and reservation features.",
     image: "/projects/project1.png",
-    tags: ["React", "Typescript", "NodeJS"],
+    tags: ["Vue.js", "JavaScript", "Laravel 10", "MySQL"],
     link: "#",
     github: "#",
   },
   {
-    title: "E-Commerce Platform",
+    title: "School Management Information System",
     description:
-      "A full-featured e-commerce solution with inventory management, payment processing, and analytics dashboard.",
+      "A full-featured enrollment solution with real-time attendance tracking, and analytics dashboard.",
     image: "/projects/project2.png",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
+    tags: ["Next.js", "JavaScript", "Laravel 10", "MySQL"],
     link: "#",
     github: "#",
   },
   {
-    title: "AI Writing Assistant",
+    title: "Manila Power Home Website",
     description:
-      "An intelligent writing tool powered by GPT-4, helping users create better content faster.",
+      "A modern, responsive website for Manila Power, featuring a clean design and easy navigation.",
     image: "/projects/project3.png",
-    tags: ["React", "OpenAI", "Python", "FastAPI"],
+    tags: ["JavaScript", "CSS", "HTML"],
     link: "#",
     github: "#",
   },
   {
-    title: "Project Management Tool",
+    title: "Online Enrollment System",
     description:
-      "A collaborative workspace for teams with real-time updates, task tracking, and integrations.",
+      "Originnally built for thesis, this system features real-time enrollment, scheduling, and a user-friendly interface for students and administrators.",
     image: "/projects/project4.png",
-    tags: ["Next.js", "Socket.io", "MongoDB", "Redis"],
+    tags: ["JavaScript", "CSS", "MySQL", "PHP"],
     link: "#",
     github: "#",
   },
@@ -52,10 +52,10 @@ export const Projects = () => {
             Featured Work
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
-            Projects that
+            Projects with
             <span className="font-serif italic font-normal text-white">
               {" "}
-              make an impact.
+              purpose and excellence.
             </span>
           </h2>
           <p className="text-muted-foreground animate-fade-in animation-delay-200">
@@ -133,12 +133,12 @@ export const Projects = () => {
         </div>
 
         {/* View All CTA */}
-        <div className="text-center mt-12 animate-fade-in animation-delay-500">
+        {/* <div className="text-center mt-12 animate-fade-in animation-delay-500">
           <AnimatedBorderButton>
             View All Projects
             <ArrowUpRight className="w-5 h-5" />
           </AnimatedBorderButton>
-        </div>
+        </div> */}
       </div>
     </section>
   );

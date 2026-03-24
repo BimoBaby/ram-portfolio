@@ -1,38 +1,37 @@
 const experiences = [
   {
-    period: "2022 — Present",
-    role: "Senior Frontend Engineer",
-    company: "Tech Innovators Inc.",
+    period: "2024 — Present",
+    role: "System Developer - Frontend",
+    company: "YouCode Technologies Corporation",
     description:
-      "Leading frontend architecture for a suite of fintech products. Implemented micro-frontend architecture, reduced bundle size by 40%, and mentored a team of 5 developers.",
-    technologies: ["React", "TypeScript", "Next.js", "GraphQL"],
-    current: true,
+      "Created and maintained responsive web applications using Vue.js and Next.js: School Management Information System and Event Management System.",
+    technologies: ["Vue.js", "JavaScript", "Next.js", "Tailwind CSS", "MySQL"],
   },
   {
-    period: "2020 — 2022",
+    period: "2023 — 2024",
     role: "Frontend Engineer",
-    company: "Digital Solutions Co.",
+    company: "Sharks Billiard League Association",
     description:
-      "Built and maintained multiple React applications for enterprise clients. Introduced automated testing practices that improved code coverage to 85%.",
-    technologies: ["React", "Redux", "Jest", "Cypress"],
+      "Built an terminal application for managing league standings and player statistics.",
+    technologies: ["React", "Tailwind CSS", "MySQL"],
     current: false,
   },
   {
-    period: "2019 — 2020",
-    role: "Junior Developer",
-    company: "StartUp Labs",
+    period: "2020 — 2023",
+    role: "Junior Frontend Developer",
+    company: "Manila Power Technologies Incorporated",
     description:
-      "Contributed to the development of a SaaS platform from MVP to production. Collaborated with designers to implement pixel-perfect UI components.",
-    technologies: ["React", "Node.js", "MongoDB", "AWS"],
+      "Contributed to the development of Online BMR Launcher, a web application for improving operational efficiency. Collaborated with cross-functional teams to deliver software solutions.",
+    technologies: ["React", "JavaScript", "MySQL"],
     current: false,
   },
   {
-    period: "2018 — 2019",
+    period: "2017 — 2020",
     role: "Freelance Developer",
     company: "Self-Employed",
     description:
-      "Delivered custom web solutions for small businesses and startups. Built 15+ websites and applications, handling everything from design to deployment.",
-    technologies: ["JavaScript", "PHP", "WordPress", "MySQL"],
+      "Delivered custom web solutions for thesis projects and small business websites. Gained experience in client communication and project management.",
+    technologies: ["JavaScript", "PHP", "HTML", "MySQL"],
     current: false,
   },
 ];
@@ -59,10 +58,10 @@ export const Experience = () => {
            mt-4 mb-6 animate-fade-in animation-delay-100
             text-secondary-foreground"
           >
-            Experience that{" "}
+            Experience leads{" "}
             <span className="font-serif italic font-normal text-white">
               {" "}
-              speaks volumes.
+            to progress
             </span>
           </h2>
 
@@ -71,7 +70,7 @@ export const Experience = () => {
            animate-fade-in animation-delay-200"
           >
             A timeline of my professional growth, from curious beginner to
-            senior engineer leading teams and building products at scale.
+            frontend system developer. leading and sharing passion and purpose.
           </p>
         </div>
 
