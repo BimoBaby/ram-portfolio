@@ -36,7 +36,7 @@ export const Hero = () => {
 
       {/* Techy Glowing Dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(1000)].map((_, i) => {
+        {[...Array(200)].map((_, i) => {
           const size = 1 + Math.random() * 2;
           const color = Math.random() > 0.5 ? "#00CC66" : "#0099CC";
           return (

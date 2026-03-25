@@ -7,8 +7,7 @@ const projects = [
       "A comprehensive event management platform with real-time registration, scheduling, and reservation features.",
     image: "/projects/project1.png",
     tags: ["Vue.js", "JavaScript", "Laravel 10", "MySQL"],
-    link: "#",
-    github: "#",
+    link: "https://www.eventmanage.biz/events/n1OLK8jAEe3Y/view",
   },
   {
     title: "School Management Information System",
@@ -16,8 +15,7 @@ const projects = [
       "A full-featured enrollment solution with real-time attendance tracking, and analytics dashboard.",
     image: "/projects/project2.png",
     tags: ["Next.js", "JavaScript", "Laravel 10", "MySQL"],
-    link: "#",
-    github: "#",
+    link: "https://youguard.ph/",
   },
   {
     title: "Manila Power Home Website",
@@ -25,8 +23,7 @@ const projects = [
       "A modern, responsive website for Manila Power, featuring a clean design and easy navigation.",
     image: "/projects/project3.png",
     tags: ["JavaScript", "CSS", "HTML"],
-    link: "#",
-    github: "#",
+    link: "https://manilapower.net/",
   },
   {
     title: "Online Enrollment System",
@@ -34,8 +31,6 @@ const projects = [
       "Originnally built for thesis, this system features real-time enrollment, scheduling, and a user-friendly interface for students and administrators.",
     image: "/projects/project4.png",
     tags: ["JavaScript", "CSS", "MySQL", "PHP"],
-    link: "#",
-    github: "#",
   },
 ];
 
