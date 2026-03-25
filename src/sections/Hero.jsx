@@ -89,7 +89,7 @@ export const Hero = () => {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <Button size="lg">
+              <Button size="lg" className="hidden sm:inline-flex">
                 Details <ArrowRight className="w-5 h-5" />
               </Button>
               <a href="/RAM-CV.pdf" download>
