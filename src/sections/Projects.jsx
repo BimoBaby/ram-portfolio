@@ -87,12 +87,12 @@ export const Projects = () => {
                   >
                     <ArrowUpRight className="w-5 h-5" />
                   </a>
-                  <a
+                  {/* <a
                     href={project.github}
                     className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
                   >
                     <Github className="w-5 h-5" />
-                  </a>
+                  </a> */}
                 </div>
               </div>
 
