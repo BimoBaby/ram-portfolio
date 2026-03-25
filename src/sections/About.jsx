@@ -16,7 +16,7 @@ const highlights = [
   {
     icon: Users,
     title: "Collaboration",
-    description: "enjoyable camaraderie with teams to bring ideas to life.",
+    description: "I truly enjoy working with teams to bring ideas to life.",
   },
   {
     icon: Lightbulb,
