@@ -18,7 +18,7 @@ const skills = [
   "Tailwind CSS",
   "Figma",
   "Git",
-  "GitHub Actions",
+  "Laragon",
 ];
 
 export const Hero = () => {
