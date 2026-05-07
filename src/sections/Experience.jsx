@@ -9,7 +9,7 @@ const experiences = [
   },
   {
     period: "2023 — 2024",
-    role: "Frontend Engineer",
+    role: "Software Engineer",
     company: "Sharks Billiard League Association",
     description:
       "Built an terminal application for managing league standings and player statistics.",
