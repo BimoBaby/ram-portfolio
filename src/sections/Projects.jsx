@@ -10,6 +10,14 @@ const projects = [
     link: "https://www.eventmanage.biz/events/n1OLK8jAEe3Y/view",
   },
   {
+    title: "User Management System",
+    description:
+      "An admin panel for user management",
+    image: "/projects/usermanagesys.jpg",
+    tags: ["React", "TypeScript", "Tailwind", "Node.js"],
+    link: "https://user-management-system-rho-three.vercel.app/",
+  },
+  {
     title: "School Management Information System",
     description:
       "A full-featured enrollment solution with real-time attendance tracking, and analytics dashboard.",
