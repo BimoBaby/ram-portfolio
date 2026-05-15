@@ -7,7 +7,7 @@ const projects = [
       "mini e-commerce platform built featuring a user-friendly interface for seamless shopping experiences.",
     image: "/projects/myshopify.png",
     tags: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
-    link: "https://www.eventmanage.biz/events/n1OLK8jAEe3Y/view",
+    link: "https://myshopify-frontend.vercel.app/",
   },
   {
     title: "User Management System",
