@@ -2,11 +2,11 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const projects = [
   {
-    title: "Event Management System",
+    title: "My Shopify",
     description:
-      "A comprehensive event management platform with real-time registration, scheduling, and reservation features.",
-    image: "/projects/project1.png",
-    tags: ["Vue.js", "JavaScript", "Laravel 10", "MySQL"],
+      "mini e-commerce platform built featuring a user-friendly interface for seamless shopping experiences.",
+    image: "/projects/myshopify.png",
+    tags: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
     link: "https://www.eventmanage.biz/events/n1OLK8jAEe3Y/view",
   },
   {
@@ -16,6 +16,14 @@ const projects = [
     image: "/projects/usermanagesys.jpg",
     tags: ["React", "TypeScript", "Tailwind", "Node.js"],
     link: "https://user-management-system-rho-three.vercel.app/",
+  },
+  {
+    title: "Event Management System",
+    description:
+      "A comprehensive event management platform with real-time registration, scheduling, and reservation features.",
+    image: "/projects/project1.png",
+    tags: ["Vue.js", "JavaScript", "Laravel 10", "MySQL"],
+    link: "https://www.eventmanage.biz/events/n1OLK8jAEe3Y/view",
   },
   {
     title: "School Management Information System",
