@@ -2,6 +2,14 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const projects = [
   {
+    title: "RAMWebX",
+    description:
+      "Smaple business website using duda platform",
+    image: "/projects/duda.png",
+    tags: ["Duda Platform"],
+    link: "https://ramwebx.multiscreensite.com/",
+  },
+  {
     title: "My Shopify",
     description:
       "mini e-commerce platform built featuring a user-friendly interface for seamless shopping experiences.",
