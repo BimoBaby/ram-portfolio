@@ -4,7 +4,7 @@ const projects = [
   {
     title: "RAMWebX",
     description:
-      "Smaple business website using duda platform",
+      "A sample business website using duda platform",
     image: "/projects/duda.png",
     tags: ["Duda Platform"],
     link: "https://ramwebx.multiscreensite.com/",
