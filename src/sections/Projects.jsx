@@ -2,6 +2,14 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const projects = [
   {
+    title: "alPar Trading Inc",
+    description:
+      "A modern business website built with React, Tailwind CSS, Vite, and Supabase for backend services.",
+    image: "/projects/alpar.png",
+    tags: ["React, Tailwind CSS, Vite, Supabase"],
+    link: "https://alpar-trading.vercel.app/",
+  },
+  {
     title: "RAMWebX",
     description:
       "A sample business website using duda platform",
