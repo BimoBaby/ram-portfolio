@@ -3,9 +3,9 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
+  { href: "#ram-about", label: "About" },
+  { href: "#ram-projects", label: "Projects" },
+  { href: "#ram-exp", label: "Experience" },
 ];
 
 export const Navbar = () => {
@@ -53,7 +53,7 @@ export const Navbar = () => {
         {/* CTA Button */}
         <div className="hidden md:block">
           <Button size="sm" asChild>
-            <a href="#contact">Contact Me</a>
+            <a href="#ram-contact">Contact Me</a>
           </Button>
         </div>
 
@@ -85,7 +85,7 @@ export const Navbar = () => {
               onClick={() => {
                 setIsMobileMenuOpen(false);
 
-                const section = document.querySelector("#contact");
+                const section = document.querySelector("#ram-contact");
                 if (section) {
                   section.scrollIntoView({ behavior: "smooth" });
                 }

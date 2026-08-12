@@ -6,10 +6,10 @@ const socialLinks = [
 ];
 
 const footerLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
+  { href: "#ram-about", label: "About" },
+  { href: "#ram-projects", label: "Projects" },
+  { href: "#ram-exp", label: "Experience" },
+  { href: "#ram-contact", label: "Contact" },
 ];
 
 export const Footer = () => {
