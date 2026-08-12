@@ -19,7 +19,7 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Phone",
-    value: "09455600851",
+    value: "09455600851 / 09913391337",
   },
   {
     icon: MapPin,
