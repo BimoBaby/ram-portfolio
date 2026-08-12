@@ -153,7 +153,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="ram-contact" className="py-32 relative overflow-hidden">
+    <section id="ram-contact" className="py-32 relative overflow-hidden bg-background/70 backdrop-blur-[1px]">
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
@@ -177,8 +177,7 @@ export const Contact = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Form */}
-          <div className="glass p-8 rounded-3xl border border-primary/30">
+          <div className="glass p-8 rounded-3xl border border-primary/30 glow-border">
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>
@@ -195,9 +194,7 @@ export const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">
-                  Email
-                </label>
+                <label className="block text-sm font-medium mb-2">Email</label>
                 <input
                   type="email"
                   required
@@ -211,9 +208,7 @@ export const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">
-                  Message
-                </label>
+                <label className="block text-sm font-medium mb-2">Message</label>
                 <textarea
                   rows={5}
                   required
@@ -260,7 +255,6 @@ export const Contact = () => {
             </form>
           </div>
 
-          {/* Contact Info */}
           <div className="space-y-6">
             <div className="glass rounded-3xl p-8">
               <h3 className="text-xl font-semibold mb-6">
@@ -268,12 +262,12 @@ export const Contact = () => {
               </h3>
 
               <div className="space-y-4">
-                {contactInfo.map((item, i) => (
+                {contactInfo.map((item) => (
                   <div
-                    key={i}
+                    key={item.label}
                     className="flex items-center gap-4 p-4 rounded-xl hover:bg-surface transition-colors"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                       <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
@@ -293,8 +287,8 @@ export const Contact = () => {
                 <span className="font-medium">Currently Available</span>
               </div>
               <p className="text-muted-foreground text-sm">
-                I'm currently open to new opportunities and exciting projects.
-                Feel free to reach out anytime!
+                I&apos;m currently open to new opportunities and exciting
+                projects. Feel free to reach out anytime!
               </p>
             </div>
           </div>

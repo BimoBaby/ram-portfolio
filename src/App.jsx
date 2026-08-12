@@ -7,6 +7,8 @@ import { Projects } from "@/sections/Projects";
 import { Experience } from "@/sections/Experience";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "./layout/Footer";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { SiteBackground } from "@/components/SiteBackground";
 
 const SECTION_PATHS = {
   "/ram-about": "ram-about",
@@ -44,16 +46,19 @@ function ScrollToSection() {
 
 function Portfolio() {
   return (
-    <div className="min-h-screen overflow-x-hidden">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Contact />
-      </main>
-      <Footer />
+    <div className="relative min-h-screen overflow-x-hidden">
+      <SiteBackground />
+      <div className="relative z-10">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+          <Experience />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
@@ -67,6 +72,7 @@ function AppRoutes() {
 
   return (
     <>
+      <SmoothScroll />
       <ScrollToSection />
       <Portfolio />
     </>

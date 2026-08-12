@@ -28,8 +28,9 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  html.lenis,
+  html.lenis body {
+    height: auto;
   }
 
   button {
@@ -69,6 +70,38 @@
     box-shadow: 0 0 25px
         color-mix(in srgb, var(--color-primary) 35%, var(--color-secondary) 25%),
       inset 0 0 25px color-mix(in srgb, var(--color-primary) 20%, var(--color-secondary) 15%);
+  }
+
+  .spotlight-card {
+    position: relative;
+    isolation: isolate;
+    --spot-x: 50%;
+    --spot-y: 50%;
+  }
+
+  .spotlight-card::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    background: radial-gradient(
+      420px circle at var(--spot-x) var(--spot-y),
+      color-mix(in srgb, var(--color-primary) 22%, transparent),
+      transparent 45%
+    );
+    z-index: 0;
+  }
+
+  .spotlight-card:hover::before {
+    opacity: 1;
+  }
+
+  .spotlight-card > * {
+    position: relative;
+    z-index: 1;
   }
 }
 
@@ -126,5 +159,267 @@
     box-shadow: 0 0 45px
         color-mix(in srgb, var(--color-primary) 45%, var(--color-secondary) 25%),
       0 0 85px color-mix(in srgb, var(--color-primary) 30%, var(--color-secondary) 15%);
+  }
+
+  .hero-aurora {
+    mix-blend-mode: screen;
+    opacity: 0.9;
+  }
+
+  .hero-aurora-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(60px);
+    will-change: transform, opacity;
+  }
+
+  .hero-aurora-orb-a {
+    width: 48vmax;
+    height: 48vmax;
+    top: -12%;
+    left: -8%;
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--color-primary) 75%, white 5%) 0%,
+      transparent 68%
+    );
+    animation:
+      aurora-drift-a 16s ease-in-out infinite,
+      electric-flicker 2.4s steps(2, end) infinite;
+  }
+
+  .hero-aurora-orb-b {
+    width: 42vmax;
+    height: 42vmax;
+    top: 18%;
+    right: -12%;
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--color-secondary) 70%, white 5%) 0%,
+      transparent 68%
+    );
+    animation:
+      aurora-drift-b 20s ease-in-out infinite,
+      electric-flicker 1.8s steps(2, end) infinite reverse;
+  }
+
+  .hero-aurora-orb-c {
+    width: 38vmax;
+    height: 38vmax;
+    bottom: -8%;
+    left: 28%;
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--color-highlight) 65%, white 5%) 0%,
+      transparent 70%
+    );
+    animation:
+      aurora-drift-c 18s ease-in-out infinite,
+      electric-flicker 3s steps(3, end) infinite;
+  }
+
+  .hero-aurora-sweep {
+    position: absolute;
+    inset: -20%;
+    background: linear-gradient(
+      115deg,
+      transparent 30%,
+      color-mix(in srgb, var(--color-primary) 28%, transparent) 48%,
+      color-mix(in srgb, var(--color-secondary) 22%, transparent) 56%,
+      transparent 72%
+    );
+    animation: aurora-sweep 12s ease-in-out infinite;
+    opacity: 0.7;
+  }
+
+  .hero-electric {
+    opacity: 0.95;
+    overflow: visible;
+  }
+
+  .hero-bolt {
+    stroke-dasharray: 28 90;
+    stroke-dashoffset: 90;
+    opacity: 0;
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+
+  .hero-bolt-1 {
+    animation: bolt-strike 4.2s linear infinite;
+  }
+
+  .hero-bolt-2 {
+    animation: bolt-strike 5.1s linear infinite;
+    animation-delay: 1.1s;
+  }
+
+  .hero-bolt-3 {
+    animation: bolt-strike 3.6s linear infinite;
+    animation-delay: 2.2s;
+  }
+
+  .hero-bolt-4 {
+    animation: bolt-strike 4.8s linear infinite;
+    animation-delay: 0.6s;
+  }
+
+  .hero-bolt-5 {
+    animation: bolt-strike 3.9s linear infinite;
+    animation-delay: 2.8s;
+  }
+
+  .hero-electric-flash {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 40% 30%,
+      color-mix(in srgb, var(--color-primary) 35%, transparent) 0%,
+      transparent 45%
+    );
+    opacity: 0;
+    animation: electric-flash 4.2s ease-in-out infinite;
+    mix-blend-mode: screen;
+  }
+
+  @keyframes aurora-drift-a {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(12%, 8%) scale(1.15); }
+  }
+
+  @keyframes aurora-drift-b {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-10%, -6%) scale(1.2); }
+  }
+
+  @keyframes aurora-drift-c {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(8%, -10%) scale(1.18); }
+  }
+
+  @keyframes aurora-sweep {
+    0%, 100% { transform: translateX(-18%) rotate(0deg); }
+    50% { transform: translateX(18%) rotate(2deg); }
+  }
+
+  @keyframes electric-flicker {
+    0%, 100% { opacity: 0.7; }
+    20% { opacity: 1; }
+    40% { opacity: 0.55; }
+    60% { opacity: 0.95; }
+    80% { opacity: 0.65; }
+  }
+
+  @keyframes bolt-strike {
+    0%, 8% {
+      opacity: 0;
+      stroke-dashoffset: 90;
+    }
+    10% {
+      opacity: 1;
+      stroke-dashoffset: 70;
+    }
+    14% {
+      opacity: 0.35;
+    }
+    16% {
+      opacity: 1;
+      stroke-dashoffset: 40;
+    }
+    22% {
+      opacity: 0.9;
+      stroke-dashoffset: 10;
+    }
+    28%, 100% {
+      opacity: 0;
+      stroke-dashoffset: -20;
+    }
+  }
+
+  @keyframes electric-flash {
+    0%, 9%, 15%, 100% { opacity: 0; }
+    10% { opacity: 0.55; }
+    12% { opacity: 0.15; }
+    13% { opacity: 0.45; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-aurora-orb-a,
+    .hero-aurora-orb-b,
+    .hero-aurora-orb-c,
+    .hero-aurora-sweep,
+    .hero-bolt-1,
+    .hero-bolt-2,
+    .hero-bolt-3,
+    .hero-bolt-4,
+    .hero-bolt-5,
+    .hero-electric-flash {
+      animation: none;
+    }
+
+    .hero-bolt {
+      opacity: 0.25;
+      stroke-dashoffset: 0;
+      stroke-dasharray: none;
+    }
+  }
+
+  /* Light mobile tone-down — keep the vibe, ease the GPU load */
+  @media (max-width: 768px) {
+    .hero-aurora {
+      opacity: 0.7;
+    }
+
+    .hero-aurora-orb {
+      filter: blur(40px);
+      will-change: auto;
+    }
+
+    .hero-aurora-orb-a,
+    .hero-aurora-orb-b,
+    .hero-aurora-orb-c {
+      animation:
+        aurora-drift-a 22s ease-in-out infinite;
+    }
+
+    .hero-aurora-orb-b {
+      animation-name: aurora-drift-b;
+      animation-duration: 26s;
+    }
+
+    .hero-aurora-orb-c {
+      animation-name: aurora-drift-c;
+      animation-duration: 24s;
+    }
+
+    .hero-aurora-sweep {
+      opacity: 0.45;
+      animation-duration: 18s;
+    }
+
+    .hero-electric {
+      opacity: 0.65;
+    }
+
+    .hero-bolt-desktop,
+    .hero-electric-flash {
+      display: none;
+    }
+
+    .hero-bolt-1 {
+      animation-duration: 6.5s;
+    }
+
+    .hero-bolt-2 {
+      animation-duration: 7.5s;
+    }
+
+    .hero-bolt-3 {
+      animation-duration: 6s;
+    }
+
+    .site-particles .absolute {
+      opacity: 0.45;
+      box-shadow: none !important;
+    }
   }
 }
