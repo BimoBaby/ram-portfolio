@@ -86,7 +86,7 @@ export const Hero = () => {
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
               <Link to="/ram-projects">
                 <Button size="lg" className="hidden sm:inline-flex">
-                  View selected work <ArrowRight className="w-5 h-5" />
+                  View Projects
                 </Button>
               </Link>
               <a href="/ramdevcv.pdf" download>
