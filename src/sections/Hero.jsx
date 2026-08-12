@@ -6,6 +6,7 @@ import {
   Facebook,
   Download,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 
 const skills = [
@@ -188,13 +189,13 @@ export const Hero = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 
       animate-fade-in animation-delay-800"
       >
-        <a
-          href="#ram-about"
+        <Link
+          to="/ram-about"
           className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
         >
           <span className="text-xs uppercase tracking-wider">Scroll</span>
           <ChevronDown className="w-6 h-6 animate-bounce" />
-        </a>
+        </Link>
       </div>
     </section>
   );

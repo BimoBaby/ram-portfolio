@@ -1,4 +1,5 @@
-import {Linkedin, Facebook} from "lucide-react";
+import { Linkedin, Facebook } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/ray-andrew-manila-2126b4275", label: "LinkedIn" },
@@ -6,10 +7,10 @@ const socialLinks = [
 ];
 
 const footerLinks = [
-  { href: "#ram-about", label: "About" },
-  { href: "#ram-projects", label: "Projects" },
-  { href: "#ram-exp", label: "Experience" },
-  { href: "#ram-contact", label: "Contact" },
+  { to: "/ram-about", label: "About" },
+  { to: "/ram-projects", label: "Projects" },
+  { to: "/ram-exp", label: "Experience" },
+  { to: "/ram-contact", label: "Contact" },
 ];
 
 export const Footer = () => {
@@ -21,9 +22,9 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
-            <a href="#" className="text-xl font-bold tracking-tight">
+            <Link to="/" className="text-xl font-bold tracking-tight">
               RAM<span className="text-primary">.</span>
-            </a>
+            </Link>
             <p className="text-sm text-muted-foreground mt-2">
               © {currentYear} Ray Andrew Manila. All rights reserved.
             </p>
@@ -32,13 +33,13 @@ export const Footer = () => {
           {/* Links */}
           <nav className="flex flex-wrap justify-center gap-6">
             {footerLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
+              <Link
+                key={link.to}
+                to={link.to}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
